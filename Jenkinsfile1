@@ -25,5 +25,9 @@ properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKe
             sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@23.22.152.180:/opt/tomcat/webapps"
         }
     }
+    stage('send email notification')
+    {
+        mail bcc: '', body: 'The buid is done', cc: '', from: '', replyTo: '', subject: 'build done', to: 'nishanthsannagiri1518@gmail.com'
+    }
     
 }
