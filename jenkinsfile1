@@ -1,6 +1,9 @@
 node
 {
     mavenHome = tool name: 'Maven 3.9.12'
+    stage('debug-settings') {
+  sh "${mavenHome}/bin/mvn help:effective-settings"
+}
     stage ('checkoutcodegit')
     {
         git branch: 'development', credentialsId: 'e19dbdde-5445-4170-9c4e-2f518493875a', url: 'https://github.com/nishanthsannagiri1518-gif/maven-web-application.git'
@@ -29,3 +32,4 @@ node
     }
 
 }
+
